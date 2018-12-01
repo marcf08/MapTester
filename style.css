@@ -3,3 +3,8 @@ button {
     z-index: 1;
     margin: 2%;
 }
+
+input {
+    width: 60%;
+    border-radius: 4px;
+}

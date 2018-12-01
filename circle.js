@@ -1,6 +1,4 @@
 let circleGen = function(lng, lat, radiusInKm, points) {
-  if(!points) points = 64;
-
   let coords = {
     latitude: lat,
     longitude: lng
@@ -9,8 +7,8 @@ let circleGen = function(lng, lat, radiusInKm, points) {
   let km = radiusInKm;
 
   let ret = [];
-  let distanceX = km/(111.320*Math.cos(coords.latitude*Math.PI/180));
-  let distanceY = km/110.574;
+  let distanceX = km / (111.320 * Math.cos(coords.latitude * Math.PI / 180));
+  let distanceY = km / 110.574;
 
   let theta, x, y;
   for(let i = 0; i < points; i++) {
@@ -54,3 +52,29 @@ let addGeoFences = function() {
     });
   }
 };
+
+let addPolyline = function() {
+  map.addLayer({
+      "id": "route",
+      "type": "line",
+      "source": {
+          "type": "geojson",
+          "data": {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                  "type": "LineString",
+                  "coordinates": incomingPolyline.features[0].geometry.coordinates
+              }
+          }
+      },
+      "layout": {
+          "line-join": "round",
+          "line-cap": "round"
+      },
+      "paint": {
+          "line-color": "#000",
+          "line-width": 5
+      }
+  })
+}

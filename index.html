@@ -9,7 +9,6 @@
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
   <link href='./style.css' rel='stylesheet' />
   <script src='./globals.js'></script>
-  <script src='./circle.js'></script>
   <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -18,7 +17,7 @@
 <body>
   <div id='map'>
     <div id='buttons'>
-      <button id = "addLine" type="button">Add Polyline</button>
+      <button id = "addLine" type="button" onclick="addPolyline()">Add Polyline (GeoJSON)</button>
   </div>
   </div>
   <script>
@@ -35,7 +34,8 @@
     addGeoFences();
   });
 
-
   </script>
+  <script src='./circle.js'></script>
+
 </body>
 </html>
