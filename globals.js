@@ -34,6 +34,7 @@ var geofences =
 ];
 
 //DO NOT MODIFY ANYTHING FROM BELOW
+var trip = "trip";
 var incomingPolyline = {
     "type": "FeatureCollection",
     "features": [

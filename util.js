@@ -53,9 +53,14 @@ let addGeoFences = function() {
   }
 };
 
+let clearPolyLine = function () {
+  map.removeLayer(trip);
+  map.removeSource(trip);
+}
+
 let addPolyline = function() {
   map.addLayer({
-      "id": "route",
+      "id": trip,
       "type": "line",
       "source": {
           "type": "geojson",
