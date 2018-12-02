@@ -1,5 +1,5 @@
 var fenceRadius = 0.1; //Set geofence radius to 100m
-var fenceSides = 100; //We're not technically using fences here, but a polygon with this many sides
+var fenceSides = 100; //We're not technically using circles here, but a polygon with this many sides
 var center = [-80.987623, 35.123127] //LNG LAT map center point; update this to adjust where the map is centered
 
 //Add any additional geofences to this list
@@ -33,7 +33,7 @@ var geofences =
   //Add more here...
 ];
 
-//DO NOT MODIFY ANYTHING FROM BELOW
+//DO NOT MODIFY ANYTHING FROM BELOW; program globals
 var trip = "trip";
 var incomingPolyline;
 var plottedMarkers = [];

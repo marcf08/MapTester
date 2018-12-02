@@ -35,7 +35,6 @@ let circleGen = function(lng, lat, radiusInKm, points) {
   };
 };
 
-//Add geofences to the map
 let addGeoFences = function() {
   for (let i = 0; i < geofences.length; i++) {
     let id = "geofence" + i;
