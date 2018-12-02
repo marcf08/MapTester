@@ -67,32 +67,35 @@ let clearPolyLine = function () {
 }
 
 let addPolyline = function() {
-  incomingPolyline = prompt("Enter geoJSON");
-  incomingPolyline = JSON.parse(incomingPolyline);
-  console.log(incomingPolyline);
-  map.addLayer({
-      "id": trip,
-      "type": "line",
-      "source": {
+    try {
+      incomingPolyline = prompt("Enter geoJSON");
+      incomingPolyline = JSON.parse(incomingPolyline);
+      map.addLayer({
+        "id": trip,
+        "type": "line",
+        "source": {
           "type": "geojson",
           "data": {
-              "type": "Feature",
-              "properties": {},
-              "geometry": {
-                  "type": "LineString",
-                  "coordinates": incomingPolyline.features[0].geometry.coordinates
-              }
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "LineString",
+              "coordinates": incomingPolyline.features[0].geometry.coordinates
+            }
           }
-      },
-      "layout": {
+        },
+        "layout": {
           "line-join": "round",
           "line-cap": "round"
-      },
-      "paint": {
+        },
+        "paint": {
           "line-color": "#000",
           "line-width": 5
-      }
-  });
+        }
+      });
+    } catch(e) {
+        alert('JSON Parse Error: ' + e);
+    }
 }
 
 let addMarkers = function() {
