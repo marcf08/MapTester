@@ -67,6 +67,10 @@ let clearPolyLine = function () {
 }
 
 let addPolyline = function() {
+  if (map.getLayer(trip) != null || plottedMarkers.length > 0) {
+      alert('Please clear the map first');
+      return;
+    }
     try {
       incomingPolyline = prompt("Enter geoJSON");
       incomingPolyline = JSON.parse(incomingPolyline);
@@ -99,7 +103,7 @@ let addPolyline = function() {
 }
 
 let addMarkers = function() {
-  if (map.getLayer(trip) != undefined) {
+  if (map.getLayer(trip) != null) {
     map.removeLayer(trip);
     for (let i = 0; i < incomingPolyline.features[0].geometry.coordinates.length; i++) {
       console.log(incomingPolyline.features[0].geometry.coordinates[0][1]);
@@ -108,5 +112,7 @@ let addMarkers = function() {
       let marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
       plottedMarkers.push(marker);
     }
+  } else {
+    alert('Please add a line first.');
   }
 }

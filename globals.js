@@ -1,4 +1,4 @@
-var fenceRadius = 0.1; //Set geofence radius to 100m
+var fenceRadius = 0.1; //Radius in KM, using 100m
 var fenceSides = 100; //We're not technically using circles here, but a polygon with this many sides
 var center = [-80.987623, 35.123127] //LNG LAT map center point; update this to adjust where the map is centered
 
