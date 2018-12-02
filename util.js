@@ -54,11 +54,23 @@ let addGeoFences = function() {
 };
 
 let clearPolyLine = function () {
-  map.removeLayer(trip);
-  map.removeSource(trip);
+  if (map.getLayer(trip) != null) {
+    map.removeLayer(trip);
+  }
+  if (map.getSource(trip) != null) {
+    map.removeSource(trip);
+  }
+  if (plottedMarkers != null) {
+    for (let i = 0; i < plottedMarkers.length; i++) {
+      plottedMarkers[i].remove();
+    }
+  }
 }
 
 let addPolyline = function() {
+  incomingPolyline = prompt("Enter geoJSON");
+  incomingPolyline = JSON.parse(incomingPolyline);
+  console.log(incomingPolyline);
   map.addLayer({
       "id": trip,
       "type": "line",
@@ -81,5 +93,18 @@ let addPolyline = function() {
           "line-color": "#000",
           "line-width": 5
       }
-  })
+  });
+}
+
+let addMarkers = function() {
+  if (map.getLayer(trip) != undefined) {
+    map.removeLayer(trip);
+    for (let i = 0; i < incomingPolyline.features[0].geometry.coordinates.length; i++) {
+      console.log(incomingPolyline.features[0].geometry.coordinates[0][1]);
+      let lng = incomingPolyline.features[0].geometry.coordinates[i][0];
+      let lat = incomingPolyline.features[0].geometry.coordinates[i][1];
+      let marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
+      plottedMarkers.push(marker);
+    }
+  }
 }

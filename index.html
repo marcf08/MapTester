@@ -7,8 +7,11 @@
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
-  <link href='./style.css' rel='stylesheet' />
   <script src='./globals.js'></script>
+  <script src='./util.js'></script>
+  <link href='./style.css' rel='stylesheet' />
+
+
   <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -18,8 +21,15 @@
   <div id='map'>
     <div id='buttons'>
       <button id = "addLine" type="button" onclick="addPolyline()">Add Polyline (GeoJSON)</button>
-      <button id = "clear" type="button" onclick="clearPolyLine()">Clear Polylines</button>
+      <button id = "drawMarkers" type="button" onclick="addMarkers()">Render Markers</button>
+      <button id = "clear" type="button" onclick="clearPolyLine()">Clear Map</button>
     </div>
+  </div>
+  <div id = 'userInput'>
+    <textarea id='polylineInput'>
+    </textarea>
+    <br>
+    <button id = "confirmPoly" type="button">Okay</button>
   </div>
   <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoibWFyY2YwOCIsImEiOiJjamh4Z2d5ZzgwYmlqM3dvNmxmZnRqYnIxIn0.7o_eO-2qNGzCFlfOjsqZSQ';
@@ -30,14 +40,11 @@
     zoom: 15 // starting zoom
   });
 
-
   map.on('load', function () {
     addGeoFences();
-    
   });
 
   </script>
-  <script src='./util.js'></script>
 
 </body>
 </html>
