@@ -33,7 +33,7 @@ var geofences =
   //Add more here...
 ];
 
-//DO NOT MODIFY ANYTHING FROM BELOW; program globals
+//PROGRAM GLOBALS DO NOT MODIFY
 var trip = "trip";
 var incomingPolyline;
 var plottedMarkers = [];
