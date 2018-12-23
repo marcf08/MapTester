@@ -1,13 +1,38 @@
-button {
-    position: fixed;
-    z-index: 1;
-    margin: 2%;
+.pure-button-primary {
+  margin: 1%;
+
 }
 
-#clear {
-  margin-top: 8%;
+#custom-modal {
+  position: float;
+  margin-top: 50%;
+  border-radius: 5px;
+  display: none;
 }
 
-#drawMarkers {
-  margin-top: 5%;
+.pure-form {
+  margin: 5%;
+  color: white;
+}
+
+textarea {
+  margin: 5%;
+  background: grey;
+}
+
+#okay {
+  float: right;
+}
+
+#map {
+  z-index: -1;
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:100%;
+}
+
+body {
+  margin:0;
+  padding:0;
 }

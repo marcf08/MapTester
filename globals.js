@@ -1,6 +1,14 @@
+//PROGRAM GLOBALS DO NOT MODIFY
+var trip = "trip";
+var defCenter = "center";
+var incomingPolyline;
+var plottedMarkers = [];
 var fenceRadius = 0.1; //Radius in KM, using 100m
-var fenceSides = 100; //We're not technically using circles here, but a polygon with this many sides
-var center = [-80.987623, 35.123127] //LNG LAT map center point; update this to adjust where the map is centered
+var fenceSides = 50; //We're not technically using circles here, but a polygon with many sides
+
+var getCenter = function() {
+    return [-80.8431,35.2271];
+}
 
 //Add any additional geofences to this list
 var geofences =
@@ -32,8 +40,3 @@ var geofences =
   }
   //Add more here...
 ];
-
-//PROGRAM GLOBALS DO NOT MODIFY
-var trip = "trip";
-var incomingPolyline;
-var plottedMarkers = [];
